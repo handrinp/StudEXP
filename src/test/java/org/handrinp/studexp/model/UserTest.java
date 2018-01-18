@@ -3,7 +3,7 @@ package org.handrinp.studexp.model;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-public class TestUser {
+public class UserTest {
   @Test
   public void testEXP() {
     User lv1User = new User("tryme");
