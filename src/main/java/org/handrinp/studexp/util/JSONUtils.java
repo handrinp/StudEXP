@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import org.handrinp.studexp.model.Task;
+import org.handrinp.studexp.model.User;
 import org.json.JSONObject;
 
 public class JSONUtils {
@@ -32,6 +34,17 @@ public class JSONUtils {
         conn.disconnect();
       }
     }
+  }
+
+  public static JSONObject loadExampleUser() {
+    User user = new User("Nick");
+    Task task1 = new Task("Do homework", 500L, 50);
+    task1.setId(50);
+    user.addTask(task1);
+    Task task2 = new Task("Do dishes", 1000L, 25);
+    task2.setId(51);
+    user.addTask(task2);
+    return new JSONObject(user);
   }
 
   public static JSONObject load() {

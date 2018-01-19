@@ -2,29 +2,39 @@ package org.handrinp.studexp.model;
 
 public class Task {
   private long id;
-  private String desc;
+  private String description;
   private long due;
+  private int exp;
 
-  public Task(String description, long due) {
+  public Task(String description, long due, int exp) {
     this.id = -1L;
-    this.desc = description;
+    this.description = description;
     this.due = due;
+    this.exp = exp;
   }
 
-  public long getID() {
+  public int getExp() {
+    return exp;
+  }
+
+  public void setExp(int exp) {
+    this.exp = exp;
+  }
+
+  public long getId() {
     return id;
   }
 
-  public void setID(long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
   public String getDescription() {
-    return desc;
+    return description;
   }
 
   public void setDescription(String description) {
-    this.desc = description;
+    this.description = description;
   }
 
   public long getDue() {

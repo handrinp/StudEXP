@@ -27,7 +27,11 @@ public class User {
     this.name = name;
   }
 
-  public int getNumTasks() {
+  public List<Task> getTasks() {
+    return tasks;
+  }
+
+  public int numTasks() {
     return tasks.size();
   }
 
@@ -40,17 +44,23 @@ public class User {
   }
 
   public void deleteTask(long id) {
-    tasks = tasks.stream().filter(t -> t.getID() != id).collect(Collectors.toList());
+    tasks = tasks.stream().filter(t -> t.getId() != id).collect(Collectors.toList());
   }
 
-  public int getEXP() {
+  public int getExp() {
     return exp;
   }
 
-  public int getLevel() {
+  public boolean gainEXP(int amount) {
+    int oldLevel = level();
+    exp += amount;
+    return oldLevel != level();
+  }
+
+  public int level() {
     int lv = 0;
-    while (expf(++lv) < exp);
-    return lv;
+    while (expf(++lv) <= exp);
+    return lv - 1;
   }
 
   private static int expf(int lv) {
